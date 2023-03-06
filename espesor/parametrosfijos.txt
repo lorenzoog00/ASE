@@ -1,0 +1,4 @@
+Parámetros fijos:
+10nm de radio
+1% de fracción de volumen
+0 grados de ángulo de incidencia
