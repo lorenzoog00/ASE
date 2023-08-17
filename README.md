@@ -11,3 +11,4 @@ Carpeta redN: Hay 5 carpetas, 4 de estas son para limpiar y acomodar los datos p
         - red_neuronal: red donde está la primera red en limpio
         -redconmax: red neuronal funcional que recibe de input fracvol, radio y espesor. Output coeficiente de absorción y longitud de onda.
         - redmaxinversa: red neuronal casi los errores están muy altos funcional que recibe de input coeficiente de absorción y longitud de onda. Output fracvol, radio y espesor.
+        -recreacion_de_graficas que toma fracvol, espesor, longitud de onda y radio para darnos un índice de absorción bastante atinado
