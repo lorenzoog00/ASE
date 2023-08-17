@@ -3,7 +3,7 @@ Carpeta de GASES 2022 hay: archivos tipo txt que son usados en ONEMINUTE
 Carpeta de ONEMINUTE: trabajo de limpieza y manipulación de bases de datos con los datos de diferentes meses investigando temperatura y radiación máxima en diferentes formatos. 
     Dentro de ONEMINUTE hay una carpeta llamada promedios que es donde se juntan gráficas de meses, con histogramas entre otras.
 Carpeta redN: Hay 5 carpetas, 4 de estas son para limpiar y acomodar los datos para usarlos en la red neuronal. 
-    Dentro de redN está RedNeuronal1, que consta de varios archivos
+    Dentro de redN está RedNeuronal1, que consta de varios archivos//
         - normalizado, primer intento de normalizar la red
         - normalizado2, segundo intento de normalizar la red
         - excel que se llama param que es la base de datos enorme, fue exportada para ver los datos en excel
