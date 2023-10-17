@@ -10,6 +10,7 @@ Este proyecto consiste en una red neuronal que predice gráficas de índice de a
 - Python (Notebooks)
 - Pandas
 - NumPy
+- TensorFlow
 
 ## Cómo Empezar
 
