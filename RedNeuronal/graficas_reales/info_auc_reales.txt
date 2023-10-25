@@ -1,0 +1,5 @@
+Máximo AUC: 1.130420672390351, Combinación: (Fracvol: 1, Radio: 10.0, Espesor: 120.0)
+Mínimo AUC: 0.08034299643814352, Combinación: (Fracvol: 1, Radio: 51.0, Espesor: 200.0)
+Media AUC: 0.42946022572856285
+Desviación Estándar AUC: 0.22739531180407935
+Mediana AUC: 0.4728366635214941
