@@ -1,0 +1,4 @@
+Minimum AUC: 0.09, Combination: [1.0, 49.0, 118.0]
+Maximum AUC: 0.73, Combination: [1.0, 5.0, 101.0]
+Average AUC: 0.36
+Standard Deviation AUC: 0.16
