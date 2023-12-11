@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Thesis Title - Neural Network for Photovoltaic Cells</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Georgia', serif; /* Change to your preferred font */
+            font-size: 25px; /* Adjust the size as needed */
+        }
+        h1, h2, h3 {
+            font-size: 1.5em; /* Adjust heading sizes as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Neural Network Prediction for Optimal Optical Parameters in Photovoltaic Cells</h1>
+        <p>By Lorenzo Orozco and Alberto Parera</p>
+    </header>
+
+    <!-- Prominent "Try It By Yourself" Button -->
+    <div class="try-it-section">
+        <a href="neural_network.html" class="try-it-button" target="_blank">TRY IT BY YOURSELF</a>
+    </div>
+
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <p>In the task of improving the efficiency of solar panels, the selection of optical parameters is crucial. This research aims at the development of a neuronal network that is capable of recommending the best combination of optical parameters based on the area that their plot gives.  By analyzing the absorption index plotted against the wavelength for each solar panel, which in turn is characterized by three parameters - volume fraction, particle thickness, and particle radius. This work signifies the potential of computational approaches in renewable energy.</p>
+    </section>
+
+    <section id="intro-neural-networks">
+        <h2>Introduction to Neural Networks</h2>
+        <p style="font-family: 'Arial', sans-serif; font-size: 1.2em;">
+            Neural networks are a cornerstone of artificial intelligence, mimicking the human brain's interconnected neuron structure 
+            to process complex data sets. They learn and make intelligent decisions by recognizing patterns and features in the data 
+            they are trained on. This ability makes them exceptionally versatile and effective in a wide range of applications, 
+            including predictive analytics, image and speech recognition, and complex problem-solving tasks.
+        </p>
+    </section>
+    
+
+    <section id="intro-absorber-films">
+        <h2>Introduction to Absorber Films</h2>
+        <p style="font-family: 'Arial', sans-serif; font-size: 1.2em;">
+            Absorber films, particularly in the context of photovoltaic cells, play a pivotal role in the conversion of solar energy 
+            into electrical power. These thin layers are engineered to absorb sunlight efficiently, with their composition and 
+            structure being key determinants in their performance. The optimization of absorber films involves tuning various 
+            parameters such as thickness, material composition, and light absorption properties to maximize the efficiency of 
+            solar cells.
+        </p>
+    </section>
+    
+
+    <section id="objectives">
+        <h2>Project Objectives</h2>
+        <p>The core objective is to design a neural network that, when provided with solar radiation data, can recommend the most appropriate solar panel by analyzing the absorption index against the wavelength for each panel. Each solar panel is defined by three parameters: volume fraction, particle thickness, and particle radius. The neural network endeavors to find the best combination of these parameters to recommend the optimal solar panel.</p>
+    </section>
+
+    <section id="methodology">
+        <h2>Methodology</h2>
+        <p>Materials
+            The primary materials utilized in this research encompassed experimental data, meteorological data, and computational resources. The experimental dataset, provided by Dr. Gesuri Morales, comprises graphs depicting the absorption index against wavelength for varying configurations of solar panel parameters: volume fraction, particle thickness, and particle radius. Additionally, meteorological data from Universidad Iberoamericana was employed to extract solar radiation graphs spanning an entire year. The computational analyses were conducted using Jupyter Notebooks, with predominant libraries including Pandas, NumPy, Keras, and TensorFlow.
+            
+            Experimental Design
+            The initial objective was to develop a neural network capable of accurately predicting graphs based on the given parameters. The network's accuracy was gauged post-training by comparing its predictions against the experimental data. Input data—comprising wavelength, volume fraction, particle thickness, and particle radius—were normalized using the MinMax Scaler function from Keras, while the absorption index remained unnormalized. A key comparison involved plotting all available experimental graphs using the network, and measuring the Area Under the Curve (AUC) error and the Mean Squared Error (MSE). Graphs with high MSE values were filtered out to delineate the operational range within which the network could provide precise graph predictions.
+            
+            Neural Network Development
+            After a process of trial and error, it was discerned that a model with three hidden layers comprising 32, 16, and 8 neurons respectively, yielded the most satisfactory performance. This dense, sequential model was adopted due to the predictive nature of the problem at hand. The Rectified Linear Unit (ReLU) activation function was employed to prevent the generation of negative values. The model underwent continual calibration to hone its predictive accuracy, with the chosen architecture reflecting the best-performing configurations discovered during this iterative process.
+            
+            Data Analysis
+            An extensive data cleaning process was undertaken to eliminate any nonexistent or duplicate values, and categorize each data point within the graphs alongside their respective parameters. Given that the output data (absorption index) remained unnormalized, the network predicted unnormalized values, obviating the need for post-prediction data processing.
+            
+            Verification and Validation
+            The preliminary verification involved comparing the graphs generated by the network against experimental graphs using identical parameters. Future work will encompass the verification of the recommended solar panel's optimality and industrial viability.
+            
+            Collaborations
+            Guidance on optical topics was provided by Dr. Gesuri Morales, while statistical and data science expertise was contributed by Dr. Alma Sagaceta.</p>
+    </section>    
+
+    <section id="results-summary" style="font-family: 'Arial', sans-serif; font-size: 1.2em;">
+        <h2 style="font-size: 1.5em;">Results Summary</h2>
+        <p>
+            The culmination of this research was realized through detailed analysis and plotting of the network's entire functional range. 
+            The code was specifically tailored to identify and save the graph combination yielding the highest Area Under the Curve (AUC) 
+            within the 400 to 700 nm spectrum, representative of visible light. This particular combination of parameters showcases the 
+            greatest absorption capacity, thus signifying its optimal utility in solar cell fabrication. Alongside the most absorptive 
+            parameters, the analysis also encapsulated the least absorptive parameters, the average AUC, and the standard deviation 
+            derived from the comprehensive data analysis.
+        </p>
+        <div style="margin-left: 20px;">
+            <p><strong>Key Metrics:</strong></p>
+            <ul>
+                <li>Minimum AUC: 0.09 (Combination: [1.0, 49.0, 118.0])</li>
+                <li>Maximum AUC: 0.73 (Combination: [1.0, 5.0, 101.0])</li>
+                <li>Average AUC: 0.36</li>
+                <li>Standard Deviation AUC: 0.16</li>
+            </ul>
+        </div>
+    </section>
+    
+
+    <section id="result-analysis">
+        <h2>Result Analysis</h2>
+        <p>
+            The efficacy of the neural network was scrutinized using a test batch, which disclosed the following error metrics:
+            Mean Absolute Error (MAE) of 0.00065,
+            Mean Squared Error (MSE) of 8.523821297295607 &times; 10<sup>-7</sup>,
+            and R<sup>2</sup> value of 0.9197612374022581.
+            These metrics vouch for the functionality and reliability of the neural network in accurately prognosticating the absorption index graphs.
+            The intricate process of neural network creation and error analysis is delineated in the 
+            <a href="https://github.com/lorenzoog00/ASE/blob/master/RedNeuronal/CreacionRed.ipynb" target="_blank">Creation Notebook</a>.
+        </p>
+    
+        <h3>Graphical Comparisons</h3>
+        <p>
+            A meticulous comparison was orchestrated between the experimental graphs and the graphs generated by the neural network.
+            All accessible experimental graphs in the dataset were plotted juxtaposed with the graphs engendered by the neural network employing identical parameter combinations.
+            The comparison accentuated on measuring the Mean Squared Error (MSE) and the Area Under the Curve (AUC) between 400 and 700 nm, corresponding with the presence of visible light.
+            The average MSE error was computed, retaining only the graphs with errors beneath this average, thereby ensuring the generation of accurate graphs by the neural network.
+            This procedure is detailed in the 
+            <a href="https://github.com/lorenzoog00/ASE/blob/master/RedNeuronal/Comparacion.ipynb" target="_blank">Comparison Notebook</a>.
+        </p>
+    </section>
+
+    <section id="final-comments">
+        <h2>Final Comments and Future Work</h2>
+        <p>[Final comments and prospects for future work]</p>
+    </section>
+
+    <section id="bibliography">
+        <h2>Bibliography</h2>
+        <p>[List of references]</p>
+    </section>
+
+    <footer>
+        <p>Contact Information</p>
+    </footer>
+</body>
+</html>
+
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neural Network Interface</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Try the Neural Network</h1>
+    </header>
+
+    <section>
+        <h2>Neural Network Parameters</h2>
+        <form id="parameter-form">
+            <label for="volume-fraction">Volume Fraction:</label>
+            <input type="number" id="volume-fraction" name="volumeFraction" value="1" readonly><br>
+
+            <label for="thickness">Thickness (nm):</label>
+            <input type="number" id="thickness" name="thickness" min="100" max="200"><br>
+
+            <label for="radio">Radio (nm):</label>
+            <input type="number" id="radio" name="radio" min="5" max="60"><br>
+
+            <label for="wavelength-range">Wavelength Range:</label>
+            <select id="wavelength-range" name="wavelengthRange">
+                <option value="uv">Ultraviolet (300-400 nm)</option>
+                <option value="visible">Visible Light (400-700 nm)</option>
+                <option value="ir">Infrared (700-900 nm)</option>
+            </select><br>
+
+            <input type="submit" value="Generate Graph">
+        </form>
+    </section>
+
+    <section id="results">
+        <h2>Results</h2>
+        <div id="graph-container">
+            <img id="result-image" src="" alt="Neural Network Prediction Graph" style="display:none; max-width: 100%; height: auto;"/>
+        </div>
+    </section>
+
+    <footer>
+        <p>Information about the project and authors</p>
+    </footer>
+
+    <script>
+        document.getElementById('parameter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var volumeFraction = document.getElementById('volume-fraction').value;
+            var radius = document.getElementById('radio').value;
+            var filmThickness = document.getElementById('thickness').value;
+            var wavelengthRange = document.getElementById('wavelength-range').value;
+
+            var data = {
+                volumeFraction: volumeFraction,
+                radius: radius,
+                filmThickness: filmThickness,
+                wavelengthRange: wavelengthRange
+            };
+
+            fetch('http://localhost:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                var img = document.getElementById('result-image');
+                img.src = 'data:image/png;base64,' + data.image;
+                img.style.display = 'block';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

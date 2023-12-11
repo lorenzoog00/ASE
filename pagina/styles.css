@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+h1, h2 {
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin: 0 0 1rem 0;
+}
+
+section {
+    padding: 1rem 2rem;
+}
+
+/* Additional styling can be added as needed */
+.try-it-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.try-it-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #007bff; /* Choose a vibrant color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.try-it-button:hover {
+    background-color: #0056b3; /* Slightly darker shade for hover effect */
+}
+
+.instructions {
+    background-color: #f8f9fa; /* Light background for the instructions box */
+    border-left: 5px solid #007bff; /* Blue border on the left for emphasis */
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.instructions ul {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0;
+}
+
+.instructions li {
+    margin-bottom: 10px; /* Spacing between items */
+}
+
+.instructions strong {
+    color: #007bff; /* Blue color for parameter names for emphasis */
+}
