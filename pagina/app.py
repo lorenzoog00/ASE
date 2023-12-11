@@ -6,8 +6,10 @@ import matplotlib.pyplot as plt
 import io
 import base64
 from sklearn.metrics import auc
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Load your model and scaler
 model = tf.keras.models.load_model('C:\\Users\\PcR\\Documents\\ASE\\pagina\\NUEVO2.h5')
