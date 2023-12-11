@@ -24,6 +24,15 @@ def predict():
     film_thickness = data['filmThickness']
     wavelength_range = data['wavelengthRange']
 
+    # Set up wavelength ranges and titles
+    wavelength_ranges = {
+        'uv': (300, 400, "Ultraviolet"),
+        'visible': (400, 700, "Visible Light"),
+        'ir': (700, 900, "Infrared")
+    }
+
+    start_wavelength, end_wavelength, range_title = wavelength_ranges.get(wavelength_range, (400, 700, "Visible Light"))
+
     longitud_de_onda = list(range(301, 901))
     df_data = {
         "Wavelength": longitud_de_onda,
@@ -38,20 +47,16 @@ def predict():
     predictions = model.predict(normalized_values)
     df['Absorption Index'] = predictions.flatten()
 
-    if wavelength_range == 'uv':
-        filtered_df = df[(df['Wavelength'] >= 300) & (df['Wavelength'] <= 400)]
-    elif wavelength_range == 'visible':
-        filtered_df = df[(df['Wavelength'] >= 400) & (df['Wavelength'] <= 700)]
-    elif wavelength_range == 'ir':
-        filtered_df = df[(df['Wavelength'] >= 700) & (df['Wavelength'] <= 900)]
-
+    # Filter based on the selected wavelength range
+    filtered_df = df[(df['Wavelength'] >= start_wavelength) & (df['Wavelength'] <= end_wavelength)]
     auc_value = auc(filtered_df['Wavelength'], filtered_df['Absorption Index'])
 
+    # Plotting
     plt.figure(figsize=(10, 6))
     plt.plot(df['Wavelength'], df['Absorption Index'], color='blue')
     plt.xlabel('Wavelength')
     plt.ylabel('Absorption Index')
-    plt.title(f'AUC: {auc_value:.5f}')
+    plt.title(f'{range_title}, AUC: {auc_value:.5f}')
     plt.grid(True)
 
     # Save plot to a bytes buffer and encode to base64
