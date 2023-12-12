@@ -12,8 +12,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Load your model and scaler
-model = tf.keras.models.load_model('C:\\Users\\PcR\\Documents\\ASE\\pagina\\NUEVO2.h5')
-scaler_X = load('C:\\Users\\PcR\\Documents\\ASE\\pagina\\minmax_scaler_X.pkl')
+model = tf.keras.models.load_model('./NUEVO2.h5')
+scaler_X = load('./minmax_scaler_X.pkl')
 
 @app.route('/predict', methods=['POST'])
 def predict():
